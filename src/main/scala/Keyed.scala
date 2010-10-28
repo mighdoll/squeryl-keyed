@@ -8,10 +8,10 @@ import org.squeryl.Session
 import org.squeryl.adapters.MySQLAdapter
 import java.sql.DriverManager
 
-case class Sample(kind:Long, date:Long) 
+case class Sample(val kind:Long, val value:Long) 
     extends KeyedEntity[CompositeKey2[Long,Long]] {
   def this() = this(0,0)
-  override val id = compositeKey(kind, date)
+  override val id = compositeKey(kind, value)
 }
 
 object Samples extends Schema {
